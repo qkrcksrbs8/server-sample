@@ -5,12 +5,8 @@ const app = express();
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-    res.render('home/index')
-});
-app.get('/login', (req, res) => {
-    res.render('home/login');
-})
+const home = require('./routes/home');
+app.use('/', home); // use -> 미들 웨어 등록
 
 app.listen(3000, () => {
     console.log('서버가 시작되었습니다.');
