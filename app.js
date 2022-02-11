@@ -1,43 +1,15 @@
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send(
-        '\
-        <!DOCTYPE html>\
-        <html lang="ko">\
-        <head>\
-            <meta charset="UTF-8">\
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-            <title>Document</title>\
-        </head>\
-        <body>\
-            루트 화면입니다. <br>\
-        </body>\
-        </html>\
-        '
-    );
-});
+// 앱 세팅
+app.set('views', './views');
+app.set('view engine', 'ejs');
 
+app.get('/', (req, res) => {
+    res.render('home/index')
+});
 app.get('/login', (req, res) => {
-    res.send(
-        '\
-        <!DOCTYPE html>\
-        <html lang="ko">\
-        <head>\
-            <meta charset="UTF-8">\
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-            <title>Document</title>\
-        </head>\
-        <body>\
-            로그인 화면입니다. <br>\
-            ID:<input type="text"><br>\
-            PW:<input type="text"></br>\
-            <button>로그인</button>\
-        </body>\
-        </html>\
-        '
-    );
+    res.render('home/login');
 })
 
 app.listen(3000, () => {
