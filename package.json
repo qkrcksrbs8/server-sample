@@ -1,0 +1,24 @@
+{
+  "name": "server-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "bin": {
+    "server-sample": "www.js"
+  },
+  "scripts": {
+    "start": "node ./bin/www.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qkrcksrbs8/server-sample.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qkrcksrbs8/server-sample/issues"
+  },
+  "homepage": "https://github.com/qkrcksrbs8/server-sample#readme"
+}
