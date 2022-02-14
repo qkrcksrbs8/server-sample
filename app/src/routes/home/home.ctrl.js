@@ -10,9 +10,17 @@ const output = {
     }
 };
 
+const users = {
+    id: ["pcg", "admin", "test"],
+    psword: ["1111", "1111", "2222"],
+}
+
 const process = {
     login: (req, res) => {
-        console.log(req.body);
+        const id = req.body.id,
+        psword = req.body.psword;
+
+        console.log(id, psword);
     },
 };
 
