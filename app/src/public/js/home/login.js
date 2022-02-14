@@ -1,4 +1,16 @@
 "use strict";
 
-console.log("public 경로 적용");
-console.log("수정 시 자동 적용 테스트");
+const id = document.querySelector("#id")
+    ,psword = document.querySelector("#psword")
+    ,loginBtn = document.querySelector("button");
+
+loginBtn.addEventListener("click", login);
+
+function login () {
+    const req = {
+        id: id.value,
+        psword: psword.value,
+        
+    };
+    console.log(req);
+}
