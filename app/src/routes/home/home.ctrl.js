@@ -21,6 +21,23 @@ const process = {
         psword = req.body.psword;
 
         console.log(id, psword);
+
+        if (users.id.includes(id)) { 
+            const idx = users.id.indexOf(id);
+            if (users.psword[idx] === psword) {
+                console.log("성공");
+                return res.json({
+                    success: true,
+                })
+            }
+        }
+
+        console.log("실패");
+
+        return res.json({
+            success: false,
+            msg: "로그인에 실패하였습니다.",
+        })
     },
 };
 
