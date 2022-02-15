@@ -1,5 +1,6 @@
 "use strict";
 
+const {response} = require("express");
 const output = {
     home: (req, res) => {
         res.render('home/index');
@@ -18,27 +19,25 @@ const users = {
 const process = {
     login: (req, res) => {
         const id = req.body.id,
-        psword = req.body.psword;
+            psword = req.body.psword;
 
         console.log(id, psword);
-
-        if (users.id.includes(id)) { 
+        const response = {};
+        if (users.id.includes(id)) {
             const idx = users.id.indexOf(id);
             if (users.psword[idx] === psword) {
+                response.success = true;
                 console.log("성공");
-                return res.json({
-                    success: true,
-                })
+                return res.json();
             }
         }
 
+        response.success = false;
+        response.msg = "로그인에 실패하였습니다.";
         console.log("실패");
 
-        return res.json({
-            success: false,
-            msg: "로그인에 실패하였습니다.",
-        })
-    },
+        return res.json(response);
+    }
 };
 
 module.exports = {
