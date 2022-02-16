@@ -1,6 +1,8 @@
 "use strict";
 
-const {response} = require("express");
+const UserStorage = require('../../models/UserStorage');
+
+const {response} = require('express');
 const output = {
     home: (req, res) => {
         res.render('home/index');
@@ -20,23 +22,24 @@ const process = {
     login: (req, res) => {
         const id = req.body.id,
             psword = req.body.psword;
-
-        console.log(id, psword);
-        const response = {};
-        if (users.id.includes(id)) {
-            const idx = users.id.indexOf(id);
-            if (users.psword[idx] === psword) {
-                response.success = true;
-                console.log("성공");
-                return res.json();
-            }
-        }
-
-        response.success = false;
-        response.msg = "로그인에 실패하였습니다.";
-        console.log("실패");
-
-        return res.json(response);
+        const userStorage = new UserStorage();
+        console.log(userStorage.users);
+        // console.log(id, psword);
+        // const response = {};
+        // if (users.id.includes(id)) {
+        //     const idx = users.id.indexOf(id);
+        //     if (users.psword[idx] === psword) {
+        //         response.success = true;
+        //         console.log("성공");
+        //         return res.json();
+        //     }
+        // }
+        //
+        // response.success = false;
+        // response.msg = "로그인에 실패하였습니다.";
+        // console.log("실패");
+        //
+        // return res.json(response);
     }
 };
 
