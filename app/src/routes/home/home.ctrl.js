@@ -23,9 +23,10 @@ const process = {
         const id = req.body.id,
             psword = req.body.psword;
         const userStorage = new UserStorage();
-        console.log(userStorage.users);
-        // console.log(id, psword);
-        // const response = {};
+       const users = UserStorage.getUsers("psword");
+
+       console.log(users);
+        const response = {};
         // if (users.id.includes(id)) {
         //     const idx = users.id.indexOf(id);
         //     if (users.psword[idx] === psword) {
@@ -34,12 +35,12 @@ const process = {
         //         return res.json();
         //     }
         // }
-        //
-        // response.success = false;
-        // response.msg = "로그인에 실패하였습니다.";
-        // console.log("실패");
-        //
-        // return res.json(response);
+
+        response.success = false;
+        response.msg = "로그인에 실패하였습니다.";
+        console.log("실패");
+
+        return res.json(response);
     }
 };
 

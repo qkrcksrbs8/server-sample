@@ -20,5 +20,10 @@ function login () {
         body: JSON.stringify(req),
     })
         .then((res) => console.log(res.json())
-        .then((res) => {}));
+        .then((res) => {
+
+        }))
+        .catch((err) => {
+            console.log("로그인 중 오류 발생");
+        });
 }
